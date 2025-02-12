@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.4-fpm
 
 # Install required dependencies
 RUN apt-get update && apt-get install -y \
@@ -11,6 +11,11 @@ RUN apt-get update && apt-get install -y \
   zip \
   libzip-dev \
   && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+
+
+# Install NodeJS
+RUN curl -fsSL https://deb.nodesource.com/setup_23.x | bash - \
+    && apt-get install -y nodejs
 
 # Install Composer
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
