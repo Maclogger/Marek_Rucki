@@ -26,5 +26,16 @@ RUN composer global require laravel/installer
 # Add Composer's global bin directory to PATH
 ENV PATH="$PATH:/root/.composer/vendor/bin"
 
+RUN groupadd -g 1000 user && useradd -m -u 1000 -g user user
+USER user
+
+RUN echo 'alias pa="php artisan"' >> ~/.bashrc
+
 # Set working directory
 WORKDIR /var/www/html
+
+
+
+
+
+
