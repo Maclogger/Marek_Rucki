@@ -1,6 +1,6 @@
 # 🌐 Bc. Marek Rucki
 
-Tento repozitár slúži na uchovávanie zdrojových kódov mojej **profesionálnej(amatérskej)** webstránky! 😎✨  
+Tento repozitár slúži na uchovávanie zdrojových kódov mojej **profesionálnej (amatérskej)** webstránky! 😎✨  
 Je to projekt, na ktorom pracujem s láskou a nadšením. 💻❤️
 
 ---
@@ -21,8 +21,20 @@ Je to projekt, na ktorom pracujem s láskou a nadšením. 💻❤️
 
 ---
 
+
+
+## Linky pre lokálne použitie po spustení projektu:
+| Tool          | Link                                           |
+|---------------|------------------------------------------------|
+| App           | [http://localhost/8083](http://localhost/8083) |
+| DB Adminer    | [http://localhost/8082](http://localhost/8082) |
+| Vite          | [http://localhost/5173](http://localhost/5173) |
+| Reverb Server | 🚧 WIP 🚧                                      |
+
+
 ## 🚀 Ako spustiť projekt? (🚧 WIP 🚧)
 
 1. Naklonuj tento repozitár:
    ```bash
-   git clone https://github.com/tvoj-repozitar/moja-webovka.git
+   git clone https://github.com/Maclogger/Marek_Rucki.git
+---
