@@ -1,6 +1,6 @@
-# 🌐 Moja Webovka
+# 🌐 Bc. Marek Rucki
 
-Tento repozitár slúži na uchovávanie zdrojových kódov mojej **profesionálnej** webstránky! 😎✨  
+Tento repozitár slúži na uchovávanie zdrojových kódov mojej **profesionálnej(amatérskej)** webstránky! 😎✨  
 Je to projekt, na ktorom pracujem s láskou a nadšením. 💻❤️
 
 ---
