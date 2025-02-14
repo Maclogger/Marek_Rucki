@@ -18,5 +18,6 @@ export default {
         },
     },
 
+    mode: 'jit',
     plugins: [forms],
 };

@@ -21,8 +21,6 @@ Je to projekt, na ktorom pracujem s láskou a nadšením. 💻❤️
 
 ---
 
-
-
 ## Linky pre lokálne použitie po spustení projektu:
 | Tool          | Link                                           |
 |---------------|------------------------------------------------|
