@@ -15,7 +15,14 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+
+    $users = (new ProfileController())->getAllUsers();
+    return Inertia::render('Dashboard', [
+        'users' => $users
+    ]);
+/*    return Inertia::render('Dashboard', [
+        'users' => [ProfileController::class, 'getAllUsers']
+    ]);*/
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
