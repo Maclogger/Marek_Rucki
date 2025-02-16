@@ -5,11 +5,37 @@ import {Head} from '@inertiajs/vue3';
 import {BugAntIcon} from '@heroicons/vue/24/solid'
 import {StarIcon} from '@heroicons/vue/24/solid'
 import {User} from "@/types";
+import {ref, onMounted, onUnmounted} from "vue";
 
 defineProps<{
     users: User[]
 }>();
 
+const activeUsers = ref<Set<number>>(new Set());
+
+onMounted(() => {
+    console.log("Spustila sa onMounted")
+    window.Echo.join("users.status")
+        .here((users: User[]) => {
+            console.log("here");
+            users.forEach((user) => activeUsers.value.add(user.id));
+        })
+        .joining((user: User) => {
+            console.log("Pridava sa uzivatel: " + user.id);
+            activeUsers.value.add(user.id);
+        })
+        .leaving((user: User) => {
+            console.log("Odchadza uzivatel: " + user.id);
+            activeUsers.value.delete(user.id);
+        });
+})
+
+onUnmounted(() => {
+    window.Echo.leave("users.status");
+    console.log("Odchádzam ja.");
+})
+
+const isUserActive = (userId: number) => activeUsers.value.has(userId);
 
 </script>
 
@@ -40,11 +66,12 @@ defineProps<{
             <div class="flex rounded-md py-2 px-3 bg-pink-600">
                 <StarIcon v-if="user.name.endsWith('a')" class="size-6 text-blue-500"/>
                 <BugAntIcon v-else class="size-6 text-blue-500"/>
-                <h1 class=" text-white mx-2">Meno: {{user.name}}</h1>
+                <h1 class=" text-white mx-2">Meno: {{ user.name }}</h1>
             </div>
 
-            <h1 class="text-white mt-3 rounded-md py-2 px-3 bg-blue-600">Prihlásený: ÁNO </h1>
+            <h1 class="text-white mt-3 rounded-md py-2 px-3 bg-blue-600">Prihlásený: {{ isUserActive(user.id) ? "ÁNO" : "NIE" }} </h1>
         </div>
+        <p class="text-white">{{ activeUsers.size }}</p>
     </AuthenticatedLayout>
 </template>
 
