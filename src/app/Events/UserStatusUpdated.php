@@ -21,14 +21,9 @@ class UserStatusUpdated implements ShouldBroadcast
      */
     public function __construct(
         public User $user,
-        public bool $isOnline
     )
     {
-        Log::info("okej construct fajny");
-        Log::info("---");
-        Log::info($this->user);
-        Log::info($this->isOnline);
-        Log::info("---");
+
     }
 
     /**
